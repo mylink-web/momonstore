@@ -1,0 +1,1278 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaos Custom – Sablon DTF & Plastisol</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#f6f9ff,#eef3ff);
+color:#2c2c2c;
+line-height:1.6;
+}
+
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+}
+
+header{
+position:relative;
+height:90vh;
+background:
+linear-gradient(135deg,rgba(79,109,245,0.75),rgba(0,210,255,0.65)),
+url('hero-kaos.jpg') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero-content h1{
+font-size:44px;
+margin-bottom:15px;
+letter-spacing:1px;
+}
+
+.hero-content p{
+font-size:18px;
+margin-bottom:25px;
+opacity:.95;
+}
+
+.btn{
+display:inline-block;
+background:linear-gradient(135deg,#ff7a18,#ffb347);
+color:white;
+padding:14px 30px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 14px 30px rgba(0,0,0,0.25);
+}
+
+section{
+padding:70px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:40px;
+font-size:30px;
+font-weight:600;
+color:#1e2a55;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px;
+}
+
+.card{
+background:rgba(255,255,255,0.9);
+padding:26px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+
+.price-box{
+background:linear-gradient(135deg,#1f1f1f,#3a3a3a);
+color:white;
+padding:32px;
+border-radius:14px;
+margin-top:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+.list{
+margin-top:10px;
+padding-left:20px;
+}
+
+.list li{
+margin:8px 0;
+}
+
+.colors{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:15px;
+}
+
+.color{
+padding:8px 16px;
+background:linear-gradient(135deg,#ffffff,#f1f3ff);
+border-radius:30px;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+font-size:14px;
+}
+
+.cta{
+background:linear-gradient(135deg,#ff7a18,#ffb347);
+color:white;
+text-align:center;
+padding:70px 20px;
+}
+
+.cta h2{
+margin-bottom:15px;
+font-size:32px;
+}
+
+.cta a{
+background:white;
+color:#ff7a18;
+padding:14px 32px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+footer{
+text-align:center;
+padding:25px;
+background:linear-gradient(135deg,#1e1e1e,#3b3b3b);
+color:#bbb;
+font-size:14px;
+}
+
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark){
+
+body{
+background:linear-gradient(135deg,#0f172a,#020617);
+color:#e5e7eb;
+}
+
+.section-title{
+color:#e2e8f0;
+}
+
+.card{
+background:rgba(30,41,59,0.9);
+color:#e5e7eb;
+}
+
+.color{
+background:linear-gradient(135deg,#1e293b,#0f172a);
+color:#e5e7eb;
+}
+
+section[style*="background:white"]{
+background:#0f172a !important;
+}
+
+footer{
+background:linear-gradient(135deg,#020617,#020617);
+}
+
+}
+
+
+/* ===== ENHANCEMENTS (non-destructive) ===== */
+
+/* floating gradient background blobs */
+.bg-blob{
+position:fixed;
+width:500px;
+height:500px;
+background:radial-gradient(circle,#60a5fa55,transparent 70%);
+filter:blur(80px);
+z-index:-1;
+pointer-events:none;
+}
+.bg-blob.blob1{top:-120px;left:-120px;}
+.bg-blob.blob2{bottom:-120px;right:-120px;}
+
+/* reveal animation */
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:all .8s ease;
+}
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* sticky bottom CTA */
+.sticky-order{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:linear-gradient(135deg,#ff7a18,#ffb347);
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+padding:14px 20px;
+font-weight:600;
+z-index:998;
+box-shadow:0 -6px 20px rgba(0,0,0,0.25);
+}
+
+.sticky-order a{
+background:white;
+color:#ff7a18;
+padding:10px 18px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+}
+
+
+/* === Added sections styling (minimal change) === */
+.grid-3{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+.faq-item{
+background:rgba(255,255,255,0.9);
+padding:20px;
+border-radius:12px;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+margin-bottom:12px;
+}
+.size-table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+.size-table th,.size-table td{
+padding:10px;
+border-bottom:1px solid #ddd;
+text-align:center;
+}
+.badge-promo{
+display:inline-block;
+background:linear-gradient(135deg,#ff7a18,#ffb347);
+color:white;
+padding:8px 16px;
+border-radius:30px;
+font-weight:600;
+margin-bottom:15px;
+}
+.gallery-link{
+display:inline-block;
+margin-top:15px;
+padding:12px 22px;
+border-radius:30px;
+background:linear-gradient(135deg,#4f6df5,#00d2ff);
+color:white;
+text-decoration:none;
+font-weight:600;
+}
+
+
+/* ===== FAQ ACCORDION ===== */
+.faq-accordion{max-width:800px;margin:auto;}
+.faq-q{cursor:pointer;font-weight:600;display:flex;justify-content:space-between;align-items:center;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;margin-top:8px;opacity:.9;}
+.faq-item.open .faq-a{max-height:200px;}
+.faq-arrow{font-size:18px;}
+
+/* ===== COMPARISON SLIDER ===== */
+.compare-slider{
+overflow-x:auto;
+display:flex;
+gap:20px;
+padding:10px 5px;
+scroll-snap-type:x mandatory;
+}
+.compare-card{
+min-width:260px;
+scroll-snap-align:start;
+background:rgba(255,255,255,0.9);
+border-radius:14px;
+padding:22px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+.compare-card h3{margin-bottom:10px;}
+.compare-list{padding-left:18px;}
+.compare-list li{margin-bottom:6px;}
+
+</style>
+
+<!-- ARCHASADA GALLERY ADDON -->
+<style>
+.archasada-gallery{
+padding:50px 0;
+background:transparent;
+}
+
+.archasada-title{
+text-align:center;
+font-size:32px;
+font-weight:700;
+margin-bottom:25px;
+letter-spacing:3px;
+}
+
+.archasada-slider{
+display:flex;
+gap:16px;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+padding:10px 20px;
+}
+
+.archasada-slider::-webkit-scrollbar{
+display:none;
+}
+
+.archasada-item{
+min-width:220px;
+height:220px;
+border-radius:14px;
+overflow:hidden;
+scroll-snap-align:start;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+background:#eee;
+}
+
+.archasada-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<div class="hero-content">
+<h1>KAOS CUSTOM</h1>
+<p>Sablon DTF & Plastisol – Kualitas Nyaman dan Sablon Rapi</p>
+<a class="btn" href="https://wa.me/6281330333623">Order Sekarang</a>
+</div>
+</header>
+
+<section class="archasada-gallery">
+<div class="container">
+
+<h2 class="archasada-title">ARCHASADA</h2>
+
+<div class="archasada-slider">
+
+<div class="archasada-item"><img src="img/gallery1.jpg" loading="lazy"></div>
+<div class="archasada-item"><img src="img/gallery2.jpg" loading="lazy"></div>
+<div class="archasada-item"><img src="img/gallery3.jpg" loading="lazy"></div>
+<div class="archasada-item"><img src="img/gallery4.jpg" loading="lazy"></div>
+<div class="archasada-item"><img src="img/gallery5.jpg" loading="lazy"></div>
+<div class="archasada-item"><img src="img/gallery6.jpg" loading="lazy"></div>
+<div class="archasada-item"><img src="img/gallery7.jpg" loading="lazy"></div>
+
+</div>
+
+</div>
+</section>
+
+
+<section>
+<div class="container">
+<h2 class="section-title">Kenapa Pilih Kami?</h2>
+<div class="features">
+
+<div class="card">
+<h3>Bahan Premium</h3>
+<p>Menggunakan Cotton Combed 24s yang nyaman dipakai dan adem.</p>
+</div>
+
+<div class="card">
+<h3>Order Fleksibel</h3>
+<p>Bisa order satuan maupun dalam jumlah banyak.</p>
+</div>
+
+<div class="card">
+<h3>Sablon Berkualitas</h3>
+<p>Tersedia sablon DTF dan Plastisol dengan hasil tajam dan tahan lama.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section style="background:white;">
+<div class="container">
+<h2 class="section-title">Custom Model Kaos</h2>
+
+<ul class="list">
+<li>Lengan Panjang</li>
+<li>Raglan</li>
+<li>Kurta 3/4</li>
+<li>Longline</li>
+<li>Curved</li>
+<li>Tunik</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 class="section-title">Pilihan Warna Favorit</h2>
+
+<div class="colors">
+<div class="color">Hitam</div>
+<div class="color">Biru Navy</div>
+<div class="color">Maroon</div>
+<div class="color">Putih</div>
+<div class="color">Hijau Army</div>
+</div>
+
+</div>
+</section>
+
+<section style="background:white;">
+<div class="container">
+
+<h2 class="section-title">Harga Kaos Custom (DTF)</h2>
+
+<div class="price-box">
+<p>Dewasa : Rp60.000 – Rp85.000</p>
+<p>Anak : Rp50.000 – Rp65.000</p>
+
+<p style="margin-top:10px;">
+Harga menyesuaikan ukuran sablon dan titik area sablon.
+</p>
+
+<p style="margin-top:10px;">
+Promo: Potongan Rp5.000 / pcs untuk pembelian 1 lusin (12 pcs)
+</p>
+
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2 class="section-title">Panduan Harga Sablon Plastisol</h2>
+
+<ul class="list">
+<li>Harga mulai : Rp55.000</li>
+<li>12 – 36 pcs : Rp80.000</li>
+<li>36 – 84 pcs : Rp75.000</li>
+<li>84 pcs > : Rp65.000</li>
+</ul>
+
+<p style="margin-top:15px;">
+Harga termasuk sablon depan & belakang (3–4 warna).
+Harga menyesuaikan ukuran sablon, area sablon, jumlah warna, dan jumlah pesanan.
+</p>
+
+</div>
+</section>
+
+<section style="background:white;">
+<div class="container">
+
+<h2 class="section-title">Produk yang Kami Layani</h2>
+
+<ul class="list">
+<li>Kaos</li>
+<li>Kemeja PDH / PDL</li>
+<li>Seragam</li>
+<li>Rompi</li>
+<li>Jersey</li>
+<li>Kaos Polo</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2 class="section-title">Estimasi Produksi</h2>
+
+<ul class="list">
+<li>DTF : 5 – 7 hari</li>
+<li>Plastisol : 10 – 20 hari</li>
+</ul>
+
+<p style="margin-top:15px;">
+DP 50% untuk mulai produksi<br>
+Ongkir ditanggung pembeli
+</p>
+
+</div>
+</section>
+
+
+<section>
+<div class="container">
+<h2 class="section-title">Contoh Hasil Produksi</h2>
+<p style="text-align:center;max-width:650px;margin:auto">
+Lihat beberapa hasil produksi kaos custom kami untuk komunitas, event, dan brand clothing.
+</p>
+<div style="text-align:center">
+<a class="gallery-link" target="_blank" href="https://drive.google.com/drive/folders/1knCf9fGogQFeQTFvmjaOR4J04arQQGm8">
+Lihat Galeri Produk
+</a>
+</div>
+</div>
+</section>
+
+<section style="background:white;">
+<div class="container">
+<h2 class="section-title">Keunggulan Kami</h2>
+<div class="grid-3">
+<div class="card"><h3>Sablon Berkualitas</h3><p>Hasil sablon tajam dan tahan lama menggunakan DTF & Plastisol.</p></div>
+<div class="card"><h3>Bisa Order Satuan</h3><p>Tidak perlu minimum order besar, bisa mulai dari 1 pcs.</p></div>
+<div class="card"><h3>Konsultasi Desain</h3><p>Bantu menyesuaikan desain agar hasil sablon lebih maksimal.</p></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 class="section-title">Cara Order</h2>
+<div class="grid-3">
+<div class="card"><h3>1. Kirim Desain</h3><p>Kirim desain atau konsep kaos yang ingin dibuat.</p></div>
+<div class="card"><h3>2. Preview & Harga</h3><p>Kami cek desain dan berikan estimasi harga produksi.</p></div>
+<div class="card"><h3>3. DP Produksi</h3><p>DP 50% untuk mulai produksi kaos.</p></div>
+<div class="card"><h3>4. Produksi</h3><p>Kaos diproduksi sesuai jumlah pesanan.</p></div>
+<div class="card"><h3>5. Pelunasan</h3><p>Pelunasan setelah produksi selesai.</p></div>
+<div class="card"><h3>6. Pengiriman</h3><p>Produk dikirim ke alamat Anda.</p></div>
+</div>
+</div>
+</section>
+
+<section style="background:white;">
+<div class="container">
+<h2 class="section-title">Testimoni Customer</h2>
+<div class="grid-3">
+<div class="card"><p>⭐⭐⭐⭐⭐<br>Sablonnya rapi dan bahan adem. Order komunitas 40 pcs puas.</p><b>- Ahmad</b></div>
+<div class="card"><p>⭐⭐⭐⭐⭐<br>Hasil sesuai desain dan pengerjaan cepat.</p><b>- Rizky</b></div>
+<div class="card"><p>⭐⭐⭐⭐⭐<br>Recommended buat bikin kaos event.</p><b>- Dimas</b></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 class="section-title">Size Chart</h2>
+<table class="size-table">
+<tr><th>Size</th><th>Lebar</th><th>Panjang</th></tr>
+<tr><td>S</td><td>48</td><td>68</td></tr>
+<tr><td>M</td><td>50</td><td>70</td></tr>
+<tr><td>L</td><td>52</td><td>72</td></tr>
+<tr><td>XL</td><td>54</td><td>74</td></tr>
+<tr><td>XXL</td><td>56</td><td>76</td></tr>
+</table>
+</div>
+</section>
+
+<section style="background:white;">
+<div class="container">
+<h2 class="section-title">Promo Bulan Ini</h2>
+<div style="text-align:center">
+<span class="badge-promo">Diskon Rp5.000 / pcs untuk 12 pcs</span>
+<p>Semakin banyak jumlah order, harga produksi semakin hemat.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 class="section-title">Cocok Untuk</h2>
+<div class="grid-3">
+<div class="card">Komunitas</div>
+<div class="card">Event & Panitia</div>
+<div class="card">Brand Clothing</div>
+<div class="card">Seragam Tim</div>
+<div class="card">Merchandise</div>
+<div class="card">Usaha / UMKM</div>
+</div>
+</div>
+</section>
+
+<section style="background:white;">
+<div class="container">
+<h2 class="section-title">Pertanyaan Umum</h2>
+
+<div class="faq-accordion">
+
+<div class="faq-item">
+<div class="faq-q">Bisa order 1 pcs? <span class="faq-arrow">+</span></div>
+<div class="faq-a">Ya, kami melayani order satuan maupun dalam jumlah besar.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Bisa desain sendiri? <span class="faq-arrow">+</span></div>
+<div class="faq-a">Bisa. Kirim desain Anda atau konsep kasar, kami bantu menyesuaikan agar hasil sablon maksimal.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Bisa kirim luar kota? <span class="faq-arrow">+</span></div>
+<div class="faq-a">Bisa. Kami melayani pengiriman ke seluruh Indonesia menggunakan ekspedisi terpercaya.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Ada minimum order? <span class="faq-arrow">+</span></div>
+<div class="faq-a">Tidak ada minimum order. Anda bisa memesan mulai dari 1 pcs.</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section>
+<div class="container">
+<h2 class="section-title">Perbandingan Sablon DTF & Plastisol</h2>
+
+<div class="compare-slider">
+
+<div class="compare-card">
+<h3>DTF</h3>
+<ul class="compare-list">
+<li>Detail gambar sangat tajam</li>
+<li>Cocok untuk desain full color</li>
+<li>Bisa order satuan</li>
+<li>Proses produksi lebih cepat</li>
+<li>Ideal untuk desain kompleks</li>
+</ul>
+</div>
+
+<div class="compare-card">
+<h3>Plastisol</h3>
+<ul class="compare-list">
+<li>Sablon sangat awet</li>
+<li>Tekstur tinta lebih kuat</li>
+<li>Cocok untuk produksi banyak</li>
+<li>Hasil sablon premium</li>
+<li>Sering dipakai brand clothing</li>
+</ul>
+</div>
+
+<div class="compare-card">
+<h3>DTF Cocok Untuk</h3>
+<ul class="compare-list">
+<li>Event dadakan</li>
+<li>Desain gradasi</li>
+<li>Foto atau ilustrasi</li>
+<li>Order sedikit</li>
+</ul>
+</div>
+
+<div class="compare-card">
+<h3>Plastisol Cocok Untuk</h3>
+<ul class="compare-list">
+<li>Produksi komunitas</li>
+<li>Brand clothing</li>
+<li>Order puluhan pcs</li>
+<li>Desain solid color</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="cta">
+
+<h2>Siap Bikin Kaos Custom?</h2>
+<p>Hubungi kami sekarang untuk konsultasi desain dan pemesanan.</p>
+
+<br>
+
+<a href="https://wa.me/6281330333623">Chat WhatsApp</a>
+
+</section>
+
+<footer>
+© 2026 Kaos Custom – Sablon DTF & Plastisol
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/6281330333623" class="wa-float" target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
+<path d="M20.52 3.48A11.8 11.8 0 0 0 12.04 0C5.41 0 .04 5.37.04 12c0 2.12.56 4.2 1.62 6.03L0 24l6.17-1.61A11.94 11.94 0 0 0 12.04 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.52-8.52zM12.04 21.82c-1.82 0-3.6-.49-5.16-1.41l-.37-.22-3.66.96.98-3.57-.24-.37A9.79 9.79 0 0 1 2.25 12c0-5.41 4.4-9.82 9.79-9.82 2.62 0 5.08 1.02 6.93 2.88a9.74 9.74 0 0 1 2.86 6.94c0 5.41-4.39 9.82-9.79 9.82zm5.37-7.36c-.29-.15-1.73-.85-2- .95-.27.1-.47.15-.67-.15-.2-.29-.77-.95-1.5-1.35-.57-.3-1.01-.33-1.3-.25-.29.08-.47.27-.65.54-.18.27-.71.7-.86.85-.16.15-.32.17-.61.06-.29-.1-1.22-.45-2.33-1.44-.86-.77-1.44-1.73-1.61-2.02-.17-.29-.02-.45.13-.6.13-.13.29-.33.44-.49.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.29-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.09 3.19 5.06 4.47.71.31 1.27.49 1.7.63.71.22 1.35.19 1.86.11.57-.08 1.73-.71 1.98-1.39.24-.68.24-1.27.17-1.39-.07-.12-.26-.2-.55-.35z"/>
+</svg>
+</a>
+
+<style>
+.wa-float{
+position:fixed;
+bottom:90px;
+right:24px;
+background:#25D366;
+width:58px;
+height:58px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+z-index:999;
+transition:.3s;
+}
+.wa-float:hover{
+transform:scale(1.08);
+box-shadow:0 14px 35px rgba(0,0,0,0.35);
+}
+
+/* ===== ENHANCEMENTS (non-destructive) ===== */
+
+/* floating gradient background blobs */
+.bg-blob{
+position:fixed;
+width:500px;
+height:500px;
+background:radial-gradient(circle,#60a5fa55,transparent 70%);
+filter:blur(80px);
+z-index:-1;
+pointer-events:none;
+}
+.bg-blob.blob1{top:-120px;left:-120px;}
+.bg-blob.blob2{bottom:-120px;right:-120px;}
+
+/* reveal animation */
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:all .8s ease;
+}
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* sticky bottom CTA */
+.sticky-order{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:linear-gradient(135deg,#ff7a18,#ffb347);
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+padding:14px 20px;
+font-weight:600;
+z-index:998;
+box-shadow:0 -6px 20px rgba(0,0,0,0.25);
+}
+
+.sticky-order a{
+background:white;
+color:#ff7a18;
+padding:10px 18px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+}
+
+
+/* === Added sections styling (minimal change) === */
+.grid-3{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+.faq-item{
+background:rgba(255,255,255,0.9);
+padding:20px;
+border-radius:12px;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+margin-bottom:12px;
+}
+.size-table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+.size-table th,.size-table td{
+padding:10px;
+border-bottom:1px solid #ddd;
+text-align:center;
+}
+.badge-promo{
+display:inline-block;
+background:linear-gradient(135deg,#ff7a18,#ffb347);
+color:white;
+padding:8px 16px;
+border-radius:30px;
+font-weight:600;
+margin-bottom:15px;
+}
+.gallery-link{
+display:inline-block;
+margin-top:15px;
+padding:12px 22px;
+border-radius:30px;
+background:linear-gradient(135deg,#4f6df5,#00d2ff);
+color:white;
+text-decoration:none;
+font-weight:600;
+}
+
+
+/* ===== FAQ ACCORDION ===== */
+.faq-accordion{max-width:800px;margin:auto;}
+.faq-q{cursor:pointer;font-weight:600;display:flex;justify-content:space-between;align-items:center;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;margin-top:8px;opacity:.9;}
+.faq-item.open .faq-a{max-height:200px;}
+.faq-arrow{font-size:18px;}
+
+/* ===== COMPARISON SLIDER ===== */
+.compare-slider{
+overflow-x:auto;
+display:flex;
+gap:20px;
+padding:10px 5px;
+scroll-snap-type:x mandatory;
+}
+.compare-card{
+min-width:260px;
+scroll-snap-align:start;
+background:rgba(255,255,255,0.9);
+border-radius:14px;
+padding:22px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+.compare-card h3{margin-bottom:10px;}
+.compare-list{padding-left:18px;}
+.compare-list li{margin-bottom:6px;}
+
+</style>
+
+
+<div class="bg-blob blob1"></div>
+<div class="bg-blob blob2"></div>
+
+<div class="sticky-order">
+<span>Pesan Kaos Custom Sekarang</span>
+<a href="https://wa.me/6281330333623">Order WhatsApp</a>
+</div>
+
+<script>
+// reveal animation
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("active");
+}
+});
+});
+
+document.querySelectorAll("section,.card,.price-box").forEach(el=>{
+el.classList.add("reveal");
+observer.observe(el);
+});
+
+// smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+a.addEventListener("click",function(e){
+const target=document.querySelector(this.getAttribute("href"));
+if(target){
+e.preventDefault();
+target.scrollIntoView({behavior:"smooth"});
+}
+});
+});
+</script>
+
+
+<script>
+document.querySelectorAll(".faq-q").forEach(q=>{
+q.addEventListener("click",()=>{
+const item=q.parentElement;
+item.classList.toggle("open");
+});
+});
+</script>
+
+
+<!-- OPTIMIZATION PATCH (non-destructive) -->
+<style>
+
+/* Ensure text visible in FAQ & comparison cards */
+.compare-card{
+color:#1e293b;
+}
+.compare-card h3{
+color:#0f172a;
+}
+.compare-list{
+color:#374151;
+}
+
+.faq-item{
+color:#1e293b;
+}
+.faq-q{
+color:#0f172a;
+}
+.faq-a{
+color:#374151;
+}
+
+/* Smooth mobile slider */
+.compare-slider{
+-webkit-overflow-scrolling:touch;
+scrollbar-width:none;
+}
+.compare-slider::-webkit-scrollbar{
+display:none;
+}
+
+/* Dark mode fixes */
+@media (prefers-color-scheme: dark){
+
+.compare-card{
+background:#1e293b;
+color:#e5e7eb;
+}
+
+.compare-card h3{
+color:#f1f5f9;
+}
+
+.compare-list{
+color:#e2e8f0;
+}
+
+.faq-item{
+background:#1e293b;
+color:#e5e7eb;
+}
+
+.faq-q{
+color:#f1f5f9;
+}
+
+.faq-a{
+color:#e2e8f0;
+}
+
+}
+
+/* Lighter animation performance */
+.reveal{
+transition:transform .8s ease, opacity .8s ease;
+}
+
+</style>
+
+
+<!-- STICKY BAR SIZE PATCH -->
+<style>
+.sticky-order{
+padding:8px 14px !important;
+font-size:14px !important;
+gap:10px !important;
+flex-wrap:nowrap !important;
+white-space:nowrap !important;
+}
+
+.sticky-order span{
+font-size:14px !important;
+}
+
+.sticky-order a{
+padding:6px 14px !important;
+font-size:13px !important;
+line-height:1 !important;
+}
+</style>
+
+
+<!-- ARCHASADA SLIDER UPGRADE -->
+<style>
+/* zoom hover */
+.archasada-item img{
+transition:transform .5s ease;
+}
+.archasada-item:hover img{
+transform:scale(1.12);
+}
+
+/* smoother scrolling */
+.archasada-slider{
+scroll-behavior:smooth;
+}
+</style>
+
+<script>
+// ARCHASADA AUTO SLIDE + INFINITE LOOP
+const archasadaSlider = document.querySelector(".archasada-slider");
+
+if(archasadaSlider){
+    // duplicate slides for loop illusion
+    archasadaSlider.innerHTML += archasadaSlider.innerHTML;
+
+    let scrollAmount = 0;
+    const speed = 0.3;
+
+    function autoSlide(){
+        scrollAmount += speed;
+        archasadaSlider.scrollLeft = scrollAmount;
+
+        if(scrollAmount >= archasadaSlider.scrollWidth / 2){
+            scrollAmount = 0;
+        }
+
+        requestAnimationFrame(autoSlide);
+    }
+
+    autoSlide();
+}
+</script>
+
+
+<!-- HERO LOGO + BRAND TEXT ADDON -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+.hero-logo{
+width:90px;
+height:90px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:15px;
+box-shadow:0 6px 18px rgba(0,0,0,0.35);
+border:3px solid rgba(255,255,255,0.8);
+}
+
+.hero-brand{
+font-family:'Great Vibes',cursive;
+font-size:42px;
+margin-top:-8px;
+margin-bottom:10px;
+background:linear-gradient(135deg,#4f6df5,#00c2ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+letter-spacing:1px;
+}
+</style>
+
+<script>
+// Inject hero logo and brand text without editing original HTML
+document.addEventListener("DOMContentLoaded",function(){
+
+const hero = document.querySelector(".hero-content");
+const title = hero ? hero.querySelector("h1") : null;
+
+if(hero && title){
+
+const logo = document.createElement("img");
+logo.src = "img/logo.png";
+logo.className = "hero-logo";
+
+const brand = document.createElement("div");
+brand.className = "hero-brand";
+brand.innerText = "ARCHASADA";
+
+hero.insertBefore(logo,title);
+title.insertAdjacentElement("afterend",brand);
+
+}
+
+});
+</script>
+
+<!-- FASTER SLIDER PATCH -->
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+
+const slider=document.querySelector(".archasada-slider");
+if(!slider) return;
+
+let boost=0;
+
+setInterval(()=>{
+slider.scrollLeft += 1.2;
+boost++;
+if(boost>slider.scrollWidth/2){
+slider.scrollLeft=0;
+boost=0;
+}
+},16);
+
+});
+</script>
+
+<!-- WHATSAPP WIGGLE EFFECT -->
+<style>
+@keyframes waWiggle{
+0%{transform:rotate(0)}
+25%{transform:rotate(6deg)}
+50%{transform:rotate(-6deg)}
+75%{transform:rotate(4deg)}
+100%{transform:rotate(0)}
+}
+
+.wa-float{
+animation:waWiggle 1.8s ease-in-out infinite;
+}
+</style>
+
+
+<!-- ADDON PATCH: Gallery Portrait + Hero Brand Bold -->
+<style>
+/* Make gallery cards slightly narrower and taller (portrait) */
+.archasada-item{
+min-width:180px !important;
+height:260px !important;
+}
+
+/* Hero brand font: elegant bold (not script) */
+.hero-brand{
+font-family:'Poppins',sans-serif !important;
+font-weight:700 !important;
+font-size:34px !important;
+letter-spacing:2px !important;
+}
+</style>
+
+
+<!-- PATCH: Manual Gallery + Zoom Full + Hero Size Adjust -->
+<style>
+.archasada-slider{
+overflow-x:auto !important;
+scroll-snap-type:x mandatory !important;
+}
+
+.archasada-item img{
+cursor:zoom-in;
+}
+
+/* logo 2x bigger */
+.hero-logo{
+width:180px !important;
+height:180px !important;
+}
+
+/* KAOS CUSTOM smaller */
+.hero-content h1{
+font-size:22px !important;
+}
+
+/* ARCHASADA bigger */
+.hero-brand{
+font-size:60px !important;
+font-weight:700 !important;
+}
+
+.gallery-viewer{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.9);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.gallery-viewer img{
+max-width:90%;
+max-height:90%;
+}
+</style>
+
+<div class="gallery-viewer" id="galleryViewer">
+<img id="galleryViewerImg">
+</div>
+
+<script>
+/* disable auto slider */
+window.requestAnimationFrame=function(){return 0}
+
+/* fullscreen zoom */
+document.querySelectorAll(".archasada-item img").forEach(img=>{
+img.addEventListener("click",()=>{
+const viewer=document.getElementById("galleryViewer")
+const viewerImg=document.getElementById("galleryViewerImg")
+viewerImg.src=img.src
+viewer.style.display="flex"
+})
+})
+
+document.getElementById("galleryViewer").addEventListener("click",()=>{
+document.getElementById("galleryViewer").style.display="none"
+})
+</script>
+
+
+<!-- PATCH 2: Fix ARCHASADA size + Smooth manual slider -->
+<style>
+/* ARCHASADA slightly smaller so it doesn't touch edges */
+.hero-brand{
+font-size:46px !important;
+max-width:90%;
+margin-left:auto;
+margin-right:auto;
+}
+
+/* smoother gallery scroll */
+.archasada-slider{
+scroll-behavior:smooth !important;
+-webkit-overflow-scrolling:touch !important;
+}
+
+/* reduce snap stiffness so scroll feels smooth */
+.archasada-item{
+scroll-snap-align:center !important;
+}
+</style>
+
+<script>
+/* stop previous slider intervals if any */
+for(let i=1;i<9999;i++){
+clearInterval(i);
+}
+
+/* ensure manual scrolling only */
+const slider=document.querySelector(".archasada-slider");
+if(slider){
+slider.style.scrollBehavior="smooth";
+}
+</script>
+
+</body>
+</html>
